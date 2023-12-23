@@ -1,0 +1,12 @@
+FROM public.ecr.aws/docker/library/node:16.13.2-stretch-slim
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.1 /lambda-adapter /opt/extensions/lambda-adapter
+EXPOSE 8080
+WORKDIR "/var/task"
+
+RUN pwd
+ADD src/package.json /var/task/package.json
+
+ADD src/package-lock.json /var/task/package-lock.json
+RUN npm install --omit=dev
+ADD src/ /var/task
+CMD ["node", "index.js"]

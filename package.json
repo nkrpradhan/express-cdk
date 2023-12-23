@@ -1,8 +1,8 @@
 {
-  "name": "fe-next-cdk",
+  "name": "express-cdk",
   "version": "0.1.0",
   "bin": {
-    "fe-next-cdk": "bin/fe-next-cdk.js"
+    "express-cdk": "bin/express-cdk.js"
   },
   "scripts": {
     "build": "tsc",
